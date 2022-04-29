@@ -1,0 +1,66 @@
+﻿@using MVCExample1.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>DataView</title>
+
+    <style>
+        table, tr, td, th {
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align : center;
+        }
+        th {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <h2>EmployeeDetails</h2>
+
+    <table style="width:100%" >
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Salary</th>
+        </tr>
+        @foreach (Employee employee in Model.Employee)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.EmployeeName</td>
+                <td>@employee.EmployeeRole</td>
+                <td>@employee.EmployeeSalary</td>
+            </tr>
+        }
+
+    </table> <br /><br />
+
+    <table style="width:100%">
+        <tr>
+            <th>StreetName</th>
+            <th>CityName</th>
+            <th>StateName</th>
+            <th>ZipCode</th>
+        </tr>
+        @foreach (Address address in Model.Address)
+        {
+            <tr>
+                <td>@address.StreetName</td>
+                <td>@address.CityName</td>
+                <td>@address.StateName</td>
+                <td>@address.ZipCode</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
